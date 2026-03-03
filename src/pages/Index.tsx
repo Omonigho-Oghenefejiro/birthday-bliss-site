@@ -1,11 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useRef } from "react";
+import FloatingHearts from "@/components/FloatingHearts";
+import CountdownSection from "@/components/CountdownSection";
+import LoveLetterSection from "@/components/LoveLetterSection";
+import GallerySection from "@/components/GallerySection";
+import TimelineSection from "@/components/TimelineSection";
+import BirthdayWishSection from "@/components/BirthdayWishSection";
 
 const Index = () => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const handleEnter = () => {
+    contentRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="relative">
+      <FloatingHearts />
+      <CountdownSection onEnter={handleEnter} />
+      <div ref={contentRef}>
+        <LoveLetterSection />
+        <GallerySection />
+        <TimelineSection />
+        <BirthdayWishSection />
       </div>
     </div>
   );
