@@ -9,7 +9,7 @@ interface TimeLeft {
   seconds: number;
 }
 
-const CountdownSection = ({ onEnter }: { onEnter: () => void }) => {
+const CountdownSection = ({ onEnter, isUnlocked }: { onEnter: () => void; isUnlocked: boolean }) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isBirthday, setIsBirthday] = useState(false);
 
@@ -106,17 +106,28 @@ const CountdownSection = ({ onEnter }: { onEnter: () => void }) => {
           </motion.div>
         )}
 
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8, duration: 0.8 }}
-          onClick={onEnter}
-          className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full bg-primary text-primary-foreground font-serif-display text-lg tracking-wide shadow-romantic hover:shadow-lg transition-all duration-500 hover:scale-105 animate-gentle-bounce"
-        >
-          <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
-          <span>Enter</span>
-          <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
-        </motion.button>
+        {isUnlocked ? (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 0.8 }}
+            onClick={onEnter}
+            className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full bg-primary text-primary-foreground font-serif-display text-lg tracking-wide shadow-romantic hover:shadow-lg transition-all duration-500 hover:scale-105 animate-gentle-bounce"
+          >
+            <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span>Enter</span>
+            <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+          </motion.button>
+        ) : (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 0.8 }}
+            className="font-body text-muted-foreground text-sm italic"
+          >
+            Come back on March 11th to see your surprise 💕
+          </motion.p>
+        )}
       </motion.div>
     </section>
   );
