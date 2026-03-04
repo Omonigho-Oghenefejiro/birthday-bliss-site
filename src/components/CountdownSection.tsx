@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+
+const RomanticScene = lazy(() => import("./RomanticScene"));
 
 interface TimeLeft {
   days: number;
@@ -50,7 +52,10 @@ const CountdownSection = ({ onEnter, isUnlocked }: { onEnter: () => void; isUnlo
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-romantic-gradient px-4">
+    <section className="relative min-h-screen flex flex-col items-center justify-center bg-romantic-gradient px-4 overflow-hidden">
+      <Suspense fallback={null}>
+        <RomanticScene />
+      </Suspense>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -93,12 +98,12 @@ const CountdownSection = ({ onEnter, isUnlocked }: { onEnter: () => void; isUnlo
           >
             {timeUnits.map((unit) => (
               <div key={unit.label} className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-24 md:h-24 rounded-xl bg-card shadow-romantic flex items-center justify-center border border-border">
-                  <span className="font-serif-display text-2xl md:text-4xl font-bold text-foreground">
+                <div className="w-16 h-16 md:w-24 md:h-24 rounded-xl bg-card/60 backdrop-blur-md shadow-romantic flex items-center justify-center border border-gold-light/20">
+                  <span className="font-serif-display text-2xl md:text-4xl font-bold text-foreground drop-shadow-sm">
                     {String(unit.value).padStart(2, "0")}
                   </span>
                 </div>
-                <span className="text-xs md:text-sm text-muted-foreground mt-2 font-body tracking-wider uppercase">
+                <span className="text-xs md:text-sm text-muted-foreground mt-2 font-body tracking-wider uppercase drop-shadow-sm">
                   {unit.label}
                 </span>
               </div>
