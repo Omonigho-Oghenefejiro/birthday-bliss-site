@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import FloatingHearts from "@/components/FloatingHearts";
 import CountdownSection from "@/components/CountdownSection";
 import LoveLetterSection from "@/components/LoveLetterSection";
+import TheDayWeMetSection from "@/components/TheDayWeMetSection";
 import GallerySection from "@/components/GallerySection";
 import TimelineSection from "@/components/TimelineSection";
 import QuizSection from "@/components/QuizSection";
