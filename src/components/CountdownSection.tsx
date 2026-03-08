@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Sparkles } from "lucide-react";
+import { Heart, Sparkles, Lock, LockOpen } from "lucide-react";
 
 interface TimeLeft {
   days: number;
@@ -323,44 +323,60 @@ const CountdownSection = ({ onEnter, isUnlocked }: { onEnter: () => void; isUnlo
           </motion.div>
         )}
 
-        {isUnlocked ? (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 2, duration: 0.8 }}
-            onClick={onEnter}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-3 rounded-sm bg-white text-black font-light text-base tracking-wide shadow-lg hover:shadow-amber-300/40 transition-all duration-300 border border-amber-300/40 hover:border-amber-300/70"
-          >
-            <motion.span animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
-              <Heart className="w-4 h-4 fill-black" />
-            </motion.span>
-            <span>See Your Surprise</span>
-            <motion.span
-              animate={{ scale: [1, 1.15, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.15 }}
-            >
-              <Heart className="w-4 h-4 fill-black" />
-            </motion.span>
-          </motion.button>
-        ) : (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          onClick={() => {
+            if (isUnlocked) {
+              onEnter();
+            }
+          }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex flex-col items-center gap-4 cursor-pointer group"
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.8 }}
-            className="text-center"
+            animate={isUnlocked ? { rotate: [0, -10, 10, 0] } : { scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className={`w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${
+              isUnlocked
+                ? "border-amber-300 bg-amber-300/10 shadow-lg shadow-amber-300/20"
+                : "border-amber-300/30 bg-white/5"
+            }`}
           >
-            <p className="text-amber-300/80 text-sm font-light mb-2">Come back on March 11th to unlock your surprise</p>
-            <motion.p
-              animate={{ opacity: [0.4, 0.8, 0.4] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-              className="text-amber-300/50 text-xs"
-            >
-              Something special is waiting for you
-            </motion.p>
+            {isUnlocked ? (
+              <LockOpen className="w-8 h-8 md:w-10 md:h-10 text-amber-300" />
+            ) : (
+              <Lock className="w-8 h-8 md:w-10 md:h-10 text-amber-300/50" />
+            )}
           </motion.div>
-        )}
+
+          <AnimatePresence mode="wait">
+            {isUnlocked ? (
+              <motion.p
+                key="unlocked"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -5 }}
+                className="text-amber-300 text-base md:text-lg font-light tracking-wide"
+              >
+                ✨ See Your Surprise ✨
+              </motion.p>
+            ) : (
+              <motion.p
+                key="locked"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                exit={{ opacity: 0, y: -5 }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+                className="text-amber-300/60 text-sm md:text-base font-light"
+              >
+                🔒 Not time yet...
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.button>
 
         <motion.p
           initial={{ opacity: 0 }}
