@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, ChevronRight, Sparkles } from "lucide-react";
+import { Heart, ChevronRight, Sparkles, Crown, Star } from "lucide-react";
 import confetti from "canvas-confetti";
 
 const compliments = [
@@ -271,52 +271,165 @@ const ProposalSection = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
+              className="w-full"
             >
-              <div className="bg-gray-950/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-pink-300/30 text-center">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="mb-8"
-                >
-                  <Heart className="w-20 h-20 text-pink-400 mx-auto fill-pink-400" />
-                </motion.div>
+              <div className="bg-gray-950/60 backdrop-blur-md rounded-3xl p-8 md:p-14 border border-amber-300/40 text-center relative overflow-hidden">
+                {/* Animated gold shimmer lines */}
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={`line-${i}`}
+                    className="absolute h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent"
+                    style={{ top: `${15 + i * 18}%`, left: 0, right: 0 }}
+                    animate={{ opacity: [0, 0.6, 0], x: [-200, 200] }}
+                    transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.4 }}
+                  />
+                ))}
 
-                <h3
-                  className="font-light text-5xl md:text-6xl text-amber-300 mb-6"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  SHE SAID YES!!! 🎉
-                </h3>
+                {/* Firework bursts */}
+                {[...Array(12)].map((_, i) => (
+                  <motion.div
+                    key={`spark-${i}`}
+                    className="absolute w-1 h-1 rounded-full"
+                    style={{
+                      background: i % 3 === 0 ? "#fbbf24" : i % 3 === 1 ? "#fcd34d" : "#f59e0b",
+                      top: `${10 + Math.random() * 80}%`,
+                      left: `${5 + Math.random() * 90}%`,
+                    }}
+                    animate={{
+                      scale: [0, 1.5, 0],
+                      opacity: [0, 1, 0],
+                      y: [0, -60 - Math.random() * 40, -120],
+                    }}
+                    transition={{
+                      duration: 2 + Math.random() * 2,
+                      repeat: Infinity,
+                      delay: Math.random() * 3,
+                    }}
+                  />
+                ))}
 
-                <p className="font-light text-xl text-white/80 mb-4">
-                  I'm the happiest man alive right now. You just made my entire world, Zaniella.
-                </p>
+                {/* Radiating rings */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={`ring-${i}`}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-amber-300/20"
+                    animate={{
+                      width: [0, 400 + i * 100],
+                      height: [0, 400 + i * 100],
+                      opacity: [0.5, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 1,
+                      ease: "easeOut",
+                    }}
+                  />
+                ))}
 
-                <p className="font-light text-lg text-pink-300/80 mb-8">
-                  From this moment on, you're officially mine and I'm officially yours. Forever. 💕
-                </p>
-
-                <div className="flex justify-center gap-3">
-                  {[...Array(7)].map((_, i) => (
+                <div className="relative z-10">
+                  {/* Crown icon */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    className="mb-4"
+                  >
                     <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <Heart className="w-8 h-8 text-pink-400 fill-pink-400" />
+                      <Crown className="w-14 h-14 text-amber-300 mx-auto" />
                     </motion.div>
-                  ))}
-                </div>
+                  </motion.div>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 2 }}
-                  className="mt-10 text-amber-200/50 text-sm font-light"
-                >
-                  I love you, my girlfriend 🥚💕
-                </motion.p>
+                  {/* Main title */}
+                  <motion.h3
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
+                    className="font-light text-4xl md:text-6xl lg:text-7xl text-amber-300 mb-3 leading-tight"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    ZANIELLA & EGGROLL
+                  </motion.h3>
+
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "60%" }}
+                    transition={{ delay: 0.8, duration: 1 }}
+                    className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent mx-auto mb-3"
+                  />
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.8 }}
+                    className="text-2xl md:text-3xl font-light text-white/90 mb-8 tracking-wide"
+                  >
+                    ARE OFFICIAL 💛
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.3 }}
+                    className="font-light text-lg text-white/70 mb-3"
+                  >
+                    I'm the happiest man alive right now. You just made my entire world.
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.6 }}
+                    className="font-light text-lg text-amber-200/70 italic mb-10"
+                  >
+                    From this moment on, you're officially mine and I'm officially yours. Forever.
+                  </motion.p>
+
+                  {/* Star row */}
+                  <div className="flex justify-center gap-4 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, rotate: -180, scale: 0 }}
+                        animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                        transition={{ delay: 1.8 + i * 0.15, type: "spring" }}
+                      >
+                        <Star className="w-7 h-7 text-amber-300 fill-amber-300" />
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Hearts row */}
+                  <div className="flex justify-center gap-3 mb-8">
+                    {[...Array(7)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 2.2 + i * 0.1 }}
+                      >
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+                        >
+                          <Heart className="w-6 h-6 text-amber-300 fill-amber-300" />
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 3 }}
+                    className="text-amber-200/40 text-sm font-light"
+                  >
+                    I love you, my girlfriend 🥚💛
+                  </motion.p>
+                </div>
               </div>
             </motion.div>
           )}
