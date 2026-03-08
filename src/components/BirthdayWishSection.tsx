@@ -142,19 +142,19 @@ const BirthdayWishSection = () => {
 
                 <div className="space-y-5 mb-8">
                   <p className="font-light text-base md:text-lg text-white/80 leading-relaxed">
-                    You are so much more than I could have ever imagined. In just these weeks with you, you've become my person, my favorite person.
+                    You know how Jim always knew Pam was the one? That's how I feel about you. From the moment we started talking, something just clicked — like the universe finally got it right.
                   </p>
 
                   <p className="font-light text-base md:text-lg text-white/80 leading-relaxed">
-                    Your laugh, your smile, the way you light up a room — it's intoxicating. The way you pushed me to finish my work, the way you say "Get in joor," the way your personality just radiates pure authenticity. You're everything.
+                    You're my Pam Beesly. The person I look for in every room, the one whose opinion matters most, the one I want to tell every stupid little thing that happens in my day to.
                   </p>
 
                   <p className="font-light text-base md:text-lg text-white/80 leading-relaxed">
-                    When you said "I love you too" on March 3rd, I knew my heart would never be the same. You're not just someone I like, Zaniella — you're someone I'm building a future with.
+                    And just like Jim waited for Pam, I'd wait a lifetime for you — except I didn't have to, because you chose me too. March 3rd proved that this isn't just a crush, Zaniella. This is real.
                   </p>
 
                   <p className="font-light text-base md:text-lg text-amber-300 leading-relaxed italic">
-                    This year, I promise to love you like you deserve. To celebrate you every single day. To be your person like you're mine.
+                    This year, I'm going all in. Every day, I'll show you why you're the best decision I ever made. You're my person — today, tomorrow, always.
                   </p>
                 </div>
 
