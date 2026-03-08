@@ -3,6 +3,7 @@ import { Camera, Play } from "lucide-react";
 import { useState } from "react";
 import zaniellaGallery1 from "@/assets/zaniella-gallery1.jpeg";
 import zaniellaGallery2 from "@/assets/zaniella-gallery2.jpeg";
+import zaniellaGallery3 from "@/assets/zaniella-gallery3.jpeg";
 
 type GalleryItem = {
   id: number;
