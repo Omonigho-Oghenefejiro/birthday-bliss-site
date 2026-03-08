@@ -11,7 +11,7 @@ import ProposalSection from "@/components/ProposalSection";
 
 const Index = () => {
   const contentRef = useRef<HTMLDivElement>(null);
-  const [isUnlocked, setIsUnlocked] = useState(true);
+  const [isUnlocked, setIsUnlocked] = useState(false);
 
   useEffect(() => {
     const checkDate = () => {
