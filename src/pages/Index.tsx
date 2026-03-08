@@ -4,6 +4,7 @@ import CountdownSection from "@/components/CountdownSection";
 import LoveLetterSection from "@/components/LoveLetterSection";
 import GallerySection from "@/components/GallerySection";
 import TimelineSection from "@/components/TimelineSection";
+import QuizSection from "@/components/QuizSection";
 import BirthdayWishSection from "@/components/BirthdayWishSection";
 
 const Index = () => {
