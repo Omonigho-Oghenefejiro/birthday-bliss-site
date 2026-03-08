@@ -6,6 +6,7 @@ import GallerySection from "@/components/GallerySection";
 import TimelineSection from "@/components/TimelineSection";
 import QuizSection from "@/components/QuizSection";
 import BirthdayWishSection from "@/components/BirthdayWishSection";
+import ProposalSection from "@/components/ProposalSection";
 
 const Index = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,7 @@ const Index = () => {
           <QuizSection />
           <TimelineSection />
           <BirthdayWishSection />
+          <ProposalSection />
         </div>
       )}
     </div>
