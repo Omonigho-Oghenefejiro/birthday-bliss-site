@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart, Eye } from "lucide-react";
 import zaniellaPhoto from "@/assets/zaniella.jpeg";
+import zaniellaSmile from "@/assets/zaniella-smile.jpeg";
 
 const TheDayWeMetSection = () => {
   return (
@@ -82,6 +83,25 @@ const TheDayWeMetSection = () => {
               <p className="font-light text-base md:text-lg text-white/70 leading-relaxed">
                 Those eyes — the way they looked at me, the way they lit up when you smiled. I couldn't look away. I didn't want to.
               </p>
+
+              <p className="font-light text-base md:text-lg text-white/70 leading-relaxed">
+                Then I saw this smile. This exact smile. And I knew I was done for.
+              </p>
+
+              {/* The smile photo */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-amber-300/20 shadow-lg shadow-amber-300/10 mx-auto lg:mx-0"
+              >
+                <img
+                  src={zaniellaSmile}
+                  alt="The smile I fell in love with"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
 
               <p className="font-light text-base md:text-lg text-white/70 leading-relaxed">
                 And now? I've fallen in love with everything about you. Your laugh, your mind, the way you carry yourself. Every single detail I discover makes me fall deeper.
