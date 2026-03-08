@@ -8,6 +8,7 @@ import zaniellaGallery4 from "@/assets/zaniella-gallery4.jpeg";
 import zaniellaGallery5 from "@/assets/zaniella-gallery5.jpeg";
 import zaniellaGallery6 from "@/assets/zaniella-gallery6.jpeg";
 import zaniellaGallery7 from "@/assets/zaniella-gallery7.jpeg";
+import zaniellaGallery8 from "@/assets/zaniella-gallery8.jpeg";
 
 type GalleryItem = {
   id: number;
