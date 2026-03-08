@@ -44,6 +44,7 @@ const Index = () => {
           <QuizSection />
           <TimelineSection />
           <BirthdayWishSection />
+          <ProposalSection />
         </div>
       )}
     </div>
