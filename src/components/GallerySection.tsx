@@ -1,15 +1,24 @@
 import { motion } from "framer-motion";
-import { Camera } from "lucide-react";
+import { Camera, Play } from "lucide-react";
+import { useState } from "react";
 import zaniellaGallery1 from "@/assets/zaniella-gallery1.jpeg";
+import zaniellaGallery2 from "@/assets/zaniella-gallery2.jpeg";
 
-const placeholderPhotos = [
+type GalleryItem = {
+  id: number;
+  caption: string;
+  image?: string;
+  video?: string;
+};
+
+const galleryItems: GalleryItem[] = [
   { id: 1, caption: "That beautiful smile ✨", image: zaniellaGallery1 },
-  { id: 2, caption: "That magical evening" },
-  { id: 3, caption: "Laughing until it hurts" },
+  { id: 2, caption: "My favorite video of you 🥰", video: "/videos/zaniella-fav.mp4" },
+  { id: 3, caption: "She's perfect 💛", image: zaniellaGallery2 },
   { id: 4, caption: "My favorite view" },
   { id: 5, caption: "The best day ever" },
   { id: 6, caption: "Just us, being us" },
-] as const;
+];
 
 const GallerySection = () => {
   return (
@@ -31,9 +40,9 @@ const GallerySection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {placeholderPhotos.map((photo, i) => (
+          {galleryItems.map((item, i) => (
             <motion.div
-              key={photo.id}
+              key={item.id}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -41,18 +50,25 @@ const GallerySection = () => {
               className="group relative"
             >
               <div className="aspect-[4/5] rounded-2xl bg-card border border-border shadow-romantic overflow-hidden cursor-pointer transition-all duration-500 group-hover:shadow-lg group-hover:scale-[1.02]">
-                {/* Photo or placeholder */}
-                {'image' in photo && photo.image ? (
-                  <img src={photo.image} alt={photo.caption} className="w-full h-full object-cover" />
+                {item.image ? (
+                  <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
+                ) : item.video ? (
+                  <video
+                    src={item.video}
+                    className="w-full h-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blush to-cream">
                     <Camera className="w-12 h-12 text-muted-foreground/40 mb-3" />
-                    <p className="text-sm text-muted-foreground/60 font-body">Upload photo {photo.id}</p>
+                    <p className="text-sm text-muted-foreground/60 font-body">Upload photo {item.id}</p>
                   </div>
                 )}
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500 rounded-2xl pointer-events-none" />
               </div>
 
               <motion.p
@@ -62,7 +78,7 @@ const GallerySection = () => {
                 transition={{ delay: 0.3 + i * 0.15, duration: 0.5 }}
                 className="text-center mt-3 font-body text-sm text-muted-foreground italic"
               >
-                {photo.caption}
+                {item.caption}
               </motion.p>
             </motion.div>
           ))}
