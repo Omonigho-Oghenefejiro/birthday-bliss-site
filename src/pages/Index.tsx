@@ -40,6 +40,7 @@ const Index = () => {
         <div ref={contentRef}>
           <LoveLetterSection />
           <GallerySection />
+          <QuizSection />
           <TimelineSection />
           <BirthdayWishSection />
         </div>
