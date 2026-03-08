@@ -40,6 +40,7 @@ const Index = () => {
       <CountdownSection onEnter={handleEnter} isUnlocked={isUnlocked} />
       {isUnlocked && (
         <div ref={contentRef}>
+          <TheDayWeMetSection />
           <LoveLetterSection />
           <GallerySection />
           <QuizSection />
