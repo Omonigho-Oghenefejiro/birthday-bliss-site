@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { Camera } from "lucide-react";
+import zaniellaGallery1 from "@/assets/zaniella-gallery1.jpeg";
 
 const placeholderPhotos = [
-  { id: 1, caption: "Our first adventure together" },
+  { id: 1, caption: "That beautiful smile ✨", image: zaniellaGallery1 },
   { id: 2, caption: "That magical evening" },
   { id: 3, caption: "Laughing until it hurts" },
   { id: 4, caption: "My favorite view" },
   { id: 5, caption: "The best day ever" },
   { id: 6, caption: "Just us, being us" },
-];
+] as const;
 
 const GallerySection = () => {
   return (

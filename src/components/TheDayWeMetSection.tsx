@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart, Eye } from "lucide-react";
 import zaniellaPhoto from "@/assets/zaniella.jpeg";
+import zaniellaSmile from "@/assets/zaniella-smile.jpeg";
 
 const TheDayWeMetSection = () => {
   return (
