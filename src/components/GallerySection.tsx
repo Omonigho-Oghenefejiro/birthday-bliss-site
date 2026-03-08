@@ -21,8 +21,11 @@ const galleryItems: GalleryItem[] = [
   { id: 2, caption: "My favorite video of you 🥰", video: "/videos/zaniella-fav.mp4" },
   { id: 3, caption: "She's perfect 💛", image: zaniellaGallery2 },
   { id: 4, caption: "My favorite view", image: zaniellaGallery3 },
-  { id: 5, caption: "The best day ever" },
-  { id: 6, caption: "Just us, being us" },
+  { id: 5, caption: "The best day ever", image: zaniellaGallery4 },
+  { id: 6, caption: "Just us, being us", image: zaniellaGallery5 },
+  { id: 7, caption: "Beautiful moments", image: zaniellaGallery6 },
+  { id: 8, caption: "Pure elegance", image: zaniellaGallery7 },
+  { id: 9, caption: "Forever grateful" },
 ];
 
 const GallerySection = () => {
