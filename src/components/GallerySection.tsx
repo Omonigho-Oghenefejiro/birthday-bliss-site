@@ -26,7 +26,7 @@ const galleryItems: GalleryItem[] = [
   { id: 6, caption: "Just us, being us", image: zaniellaGallery5 },
   { id: 7, caption: "Beautiful moments", image: zaniellaGallery6 },
   { id: 8, caption: "Pure elegance", image: zaniellaGallery7 },
-  { id: 9, caption: "Forever grateful" },
+  { id: 9, caption: "Forever grateful", image: zaniellaGallery8 },
 ];
 
 const GallerySection = () => {
