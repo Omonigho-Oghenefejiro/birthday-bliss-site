@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, ChevronRight, Sparkles } from "lucide-react";
+import { Heart, ChevronRight, Sparkles, Crown, Star } from "lucide-react";
 import confetti from "canvas-confetti";
 
 const compliments = [
