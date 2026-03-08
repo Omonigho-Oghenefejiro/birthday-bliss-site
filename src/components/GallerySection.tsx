@@ -16,7 +16,7 @@ const galleryItems: GalleryItem[] = [
   { id: 1, caption: "That beautiful smile ✨", image: zaniellaGallery1 },
   { id: 2, caption: "My favorite video of you 🥰", video: "/videos/zaniella-fav.mp4" },
   { id: 3, caption: "She's perfect 💛", image: zaniellaGallery2 },
-  { id: 4, caption: "My favorite view" },
+  { id: 4, caption: "My favorite view", image: zaniellaGallery3 },
   { id: 5, caption: "The best day ever" },
   { id: 6, caption: "Just us, being us" },
 ];
