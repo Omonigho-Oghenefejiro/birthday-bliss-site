@@ -4,6 +4,10 @@ import { useState } from "react";
 import zaniellaGallery1 from "@/assets/zaniella-gallery1.jpeg";
 import zaniellaGallery2 from "@/assets/zaniella-gallery2.jpeg";
 import zaniellaGallery3 from "@/assets/zaniella-gallery3.jpeg";
+import zaniellaGallery4 from "@/assets/zaniella-gallery4.jpeg";
+import zaniellaGallery5 from "@/assets/zaniella-gallery5.jpeg";
+import zaniellaGallery6 from "@/assets/zaniella-gallery6.jpeg";
+import zaniellaGallery7 from "@/assets/zaniella-gallery7.jpeg";
 
 type GalleryItem = {
   id: number;
