@@ -8,6 +8,7 @@ import zaniellaGallery4 from "@/assets/zaniella-gallery4.jpeg";
 import zaniellaGallery5 from "@/assets/zaniella-gallery5.jpeg";
 import zaniellaGallery6 from "@/assets/zaniella-gallery6.jpeg";
 import zaniellaGallery7 from "@/assets/zaniella-gallery7.jpeg";
+import zaniellaGallery8 from "@/assets/zaniella-gallery8.jpeg";
 
 type GalleryItem = {
   id: number;
@@ -25,7 +26,7 @@ const galleryItems: GalleryItem[] = [
   { id: 6, caption: "Just us, being us", image: zaniellaGallery5 },
   { id: 7, caption: "Beautiful moments", image: zaniellaGallery6 },
   { id: 8, caption: "Pure elegance", image: zaniellaGallery7 },
-  { id: 9, caption: "Forever grateful" },
+  { id: 9, caption: "Forever grateful", image: zaniellaGallery8 },
 ];
 
 const GallerySection = () => {
